@@ -72,6 +72,8 @@ function animation() {
 document.getElementById("setup").addEventListener("click", () => {
     $container.innerHTML = "";
     clearInterval(run);
+    arrAnimation =[];
+    run=undefined;
     let size = document.getElementById("size").value;
 
 
@@ -80,11 +82,15 @@ document.getElementById("setup").addEventListener("click", () => {
         rect.classList.add("rectangle");
         let rdn = parseInt(Math.random() * 100) + 1;
         rect.style.height = rdn + "%";
-        rect.style.width = Math.floor($container.clientWidth/size) + "px";
+        rect.style.width = Math.round($container.clientWidth/size) + "px";
 
         $container.appendChild(rect);
 
     }
+
+    document.getElementById("insertionSort").disabled=false;
+    document.getElementById("bubbleSort").disabled=false;
+    document.getElementById("shellSort").disabled=false;
 
 });
 
@@ -92,6 +98,9 @@ document.getElementById("insertionSort").addEventListener("click", () => {
 
     insertionSort([...$container.children]);
     run = setInterval(animation, 60);
+    document.getElementById("insertionSort").disabled=true;
+    document.getElementById("bubbleSort").disabled=true;
+    document.getElementById("shellSort").disabled=true;
 
 });
 
@@ -99,11 +108,17 @@ document.getElementById("bubbleSort").addEventListener("click", () => {
 
     BubbleSort([...$container.children]);
     run = setInterval(animation, 60);
+    document.getElementById("insertionSort").disabled=true;
+    document.getElementById("bubbleSort").disabled=true;
+    document.getElementById("shellSort").disabled=true;
 
 });
 document.getElementById("shellSort").addEventListener("click", () => {
 
     shellSort([...$container.children]);
     run = setInterval(animation, document.getElementById("speed").value);
+    document.getElementById("insertionSort").disabled=true;
+    document.getElementById("bubbleSort").disabled=true;
+    document.getElementById("shellSort").disabled=true;
 
 });
