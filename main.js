@@ -82,7 +82,7 @@ document.getElementById("setup").addEventListener("click", () => {
         rect.classList.add("rectangle");
         let rdn = parseInt(Math.random() * 100) + 1;
         rect.style.height = rdn + "%";
-        rect.style.width = Math.round($container.clientWidth/size) + "px";
+        rect.style.width = $container.clientWidth/size + "px";
 
         $container.appendChild(rect);
 
@@ -98,9 +98,7 @@ document.getElementById("insertionSort").addEventListener("click", () => {
 
     insertionSort([...$container.children]);
     run = setInterval(animation, 60);
-    document.getElementById("insertionSort").disabled=true;
-    document.getElementById("bubbleSort").disabled=true;
-    document.getElementById("shellSort").disabled=true;
+    disableButtons()
 
 });
 
@@ -108,17 +106,19 @@ document.getElementById("bubbleSort").addEventListener("click", () => {
 
     BubbleSort([...$container.children]);
     run = setInterval(animation, 60);
-    document.getElementById("insertionSort").disabled=true;
-    document.getElementById("bubbleSort").disabled=true;
-    document.getElementById("shellSort").disabled=true;
+    disableButtons()
 
 });
 document.getElementById("shellSort").addEventListener("click", () => {
 
     shellSort([...$container.children]);
     run = setInterval(animation, document.getElementById("speed").value);
+    disableButtons()
+
+});
+
+function disableButtons(){
     document.getElementById("insertionSort").disabled=true;
     document.getElementById("bubbleSort").disabled=true;
     document.getElementById("shellSort").disabled=true;
-
-});
+}
