@@ -1,4 +1,4 @@
-#Code Challenge I
+# Code Challenge I
 I saw a Reels about visualization of sorting algorithms and decide to make one as an challenge to me ^-^
 
 
