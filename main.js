@@ -2,6 +2,24 @@ const $container = document.getElementById("container");
 let arrAnimation = [];
 let run = undefined;
 
+function mergeSort(array) {
+    arrAnimation = [];
+    let sorted = [];
+    for (let i = 0; i < array.length; i++) {
+        let left, right = [];
+
+        while (left.length < right.left) {
+            left.append(...array[i]);
+        }
+
+        while (left.length > right.left) {
+            right.append(...array[i]);
+        }
+
+
+    }
+
+}
 
 
 function shellSort(array){
@@ -18,6 +36,7 @@ for (let gap = Math.floor(l/2); gap > 0 ; gap = Math.floor(gap/2)) {
         array[j] = swap;
     }
     arrAnimation.push([...array]);    
+
 }
 }
 
@@ -31,9 +50,10 @@ function BubbleSort(array) {
                 array[i] = array[i + 1];
                 array[i + 1] = swap;
             }
-            arrAnimation.push([...array]);
 
         }
+        arrAnimation.push([...array]);
+
     }
 }
 
@@ -95,25 +115,25 @@ document.getElementById("setup").addEventListener("click", () => {
 });
 
 document.getElementById("insertionSort").addEventListener("click", () => {
+    disableButtons()
 
     insertionSort([...$container.children]);
-    run = setInterval(animation, 60);
-    disableButtons()
+    run = setInterval(animation, document.getElementById("speed").value);
 
 });
 
 document.getElementById("bubbleSort").addEventListener("click", () => {
+    disableButtons()
 
     BubbleSort([...$container.children]);
-    run = setInterval(animation, 60);
-    disableButtons()
+    run = setInterval(animation, document.getElementById("speed").value);
 
 });
 document.getElementById("shellSort").addEventListener("click", () => {
+    disableButtons()
 
     shellSort([...$container.children]);
     run = setInterval(animation, document.getElementById("speed").value);
-    disableButtons()
 
 });
 
